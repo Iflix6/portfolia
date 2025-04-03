@@ -119,6 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   // Tabs functionality
+  // Tabs functionality
   const tabBtns = document.querySelectorAll('.tab-btn');
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -129,7 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
       // Add active class to clicked button and corresponding pane
       btn.classList.add('active');
       const tabId = btn.getAttribute('data-tab');
-      document.getElementById(tabId).classList.add('active');
+      
+      // Find the tab pane with the matching id
+      const tabPane = document.querySelector(`.tab-pane#${tabId}`);
+      if (tabPane) {
+        tabPane.classList.add('active');
+      }
     });
   });
 
